@@ -1,5 +1,0 @@
-model,auc
-per-attempt: leads+base+runner,0.74
-per-attempt: + catcher (nested OOF),0.7512
-per-attempt: + pitcher (nested OOF),0.7401
-per-attempt: + both battery (nested OOF),0.7509

@@ -1,7 +1,0 @@
-term,coefficient,odds_multiplier
-intercept,-23.01083,
-sprint_speed,0.31684,1.3728
-lead_at_firstmove_ft,0.06874,1.0712
-gain_to_release_ft,0.30281,1.3537
-pop_faced,5.85786,349.9749
-CV AUC (5-fold),0.7559,

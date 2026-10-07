@@ -1,9 +1,0 @@
-question,metric,value,note
-corr with sprint speed,Net Bases,0.335,
-corr with sprint speed,Steal+,0.064,
-corr with sprint speed,Burst,-0.0,
-describes net steals (same season),Steal+,0.738,
-describes success rate (same season),Steal+,0.835,
-year-over-year self-stability,Steal+,0.2,n=405
-year-over-year self-stability,Burst,0.264,n=405
-Steal+ vs Burst (independent lenses),Steal+ x Burst,0.288,

@@ -1,62 +1,53 @@
-## macOS
+## macOS, editors, Python
 .DS_Store
 .AppleDouble
 .LSOverride
-
-## Python
 __pycache__/
 *.py[cod]
-*$py.class
 *.egg-info/
 .ipynb_checkpoints/
 .venv/
 venv/
-
-## IDE
 .vscode/
 .idea/
-
-## pybaseball cache
-.pybaseball_cache/
-*.cache
-
-## v5 pickle cache (large pitch-by-pitch data, regenerable)
-.cache/
-
-## league-wide raw per-attempt leads cache (regenerable via scrape_statcast.py; ~1.1k small CSVs)
-## the committed Data/Raw_Attempts.csv is the model input, so this raw cache need not be committed
-Data/leads_cache/
-Data/discovery/
-*.mp4
-
-## OS / editor noise
 *~
 *.swp
 *.swo
-
-## v1 legacy (still kept locally as reference, but don't push)
-stolen_base_analysis.py
-
-## CatBoost training logs (regenerable)
-catboost_info/
-
-## MS Office lock/temp files
 ~$*
 
-# NOTE: docs/assets/ IS committed — GitHub Pages serves the site from /docs, so the
-# headshots and logos must be in the repo or every image 404s on the live site. They are
-# byte-identical copies of Output/assets (made by build_web.py sync_assets), so git stores
-# them as the same blobs and the duplication costs essentially nothing.
+## regenerable caches and large binaries (rebuilt by ingest.py / vision/delivery.py)
+1-Data-Ingestion/data/cache/
+1-Data-Ingestion/vision/cache
+# (vision/cache is a link to ~/stealiq-vision-cache: kept off the iCloud-synced Desktop, where clips were uploading)
+1-Data-Ingestion/vision/weights/
+*.mp4
+graphify-out/
+# (graphify-out/: the code map from `graphify update .`, rebuilt on demand)
 
-## v12 play-by-play cache (one slim json per game; hundreds of MB, fully regenerable via
-## `scrape_statcast.py context`). The derived Data/Raw_Attempt_Context.csv IS committed.
-Data/pbp_cache/
+## local only: superseded code, reports and outputs, kept on this machine
+4-Archive/
 
-## v13 opportunity cache (regenerable via `scrape_statcast.py opportunities`)
-Data/pbp_opps_cache/
+## the SABR deck embeds three broadcast clips (mp4): kept on this machine, like every other video
+3-Presentations/Saber Final Version.pptx
 
-## v13 opportunities: the plain CSV is 41MB; the gzipped copy is committed instead
-Data/Raw_Opportunities.csv
+## regenerable outputs, rebuilt by stealiq.py (2-Data-Analysis) and webapp.py (5-Live-Webapp); their README.md files stay
+2-Data-Analysis/results/**/*
+2-Data-Analysis/figures/**/*
+5-Live-Webapp/results/*
+5-Live-Webapp/figures/*
+!2-Data-Analysis/results/**/
+!2-Data-Analysis/figures/**/
+!2-Data-Analysis/results/**/README.md
+!2-Data-Analysis/figures/**/README.md
+!5-Live-Webapp/results/README.md
+!5-Live-Webapp/figures/README.md
+2-Data-Analysis/analysis.ipynb
 
-## scraper staging dir; the served copy is docs/assets (committed)
-Output/assets/
+## the paper stays on this machine for now; its ledger (StealIQ_Paper.ledger.md) is tracked
+2-Data-Analysis/StealIQ_Paper.pdf
+2-Data-Analysis/StealIQ_Figure_Discussion.pdf
+2-Data-Analysis/.StealIQ_Paper.versions/
+
+# NOTE: docs/assets/ IS committed: GitHub Pages serves the site from docs/, so the headshots and logos must be in the
+# repo or every image 404s on the live site (ingest.py assets writes them there directly).
+

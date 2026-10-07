@@ -1,4 +1,0 @@
-feature_set,n_features,n_rows,max_vif,worst_feature,passes
-v12 leads,2,11084,1.14,lead_at_firstmove_ft,True
-v12 shipped,18,6835,6.63,pop_2b_sba,True
-v15 calculator,4,10844,1.21,gain_to_release_ft,True

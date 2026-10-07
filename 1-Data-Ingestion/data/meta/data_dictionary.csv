@@ -1,0 +1,172 @@
+column,block,source,description,non_null_pct
+season,attempt,Savant drawer,Season of the attempt.,100.0
+date,attempt,Savant drawer,Game date (YYYY-MM-DD).,100.0
+game_pk,identity,MLB feed,MLB game id.,92.6
+play_id,identity,Savant drawer,Savant/MLB pitch id of the pitch the runner went on. Join key for every table.,100.0
+video_url,link,derived,Baseball Savant video of the play (home broadcast).,100.0
+video_url_away,link,derived,The same play on the away broadcast.,100.0
+gamefeed_url,link,derived,Savant game feed for the whole game.,100.0
+qa_flags,qa,derived,"ok, or a semicolon list of cross-source disagreements for this row: no_statcast_row, no_feed_context, pitcher_mismatch (Statcast pitcher != drawer pitcher), catcher_mismatch (Statcast fielder_2 != drawer catcher), runner_not_on_base (runner not on the base he left, before the pitch), date_mismatch, pitch_type_mismatch (MLB feed code != Statcast pitch_type).",100.0
+inning,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",Pre-pitch inning number.,92.6
+inning_topbot,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",Pre-pitch top or bottom of inning.,92.6
+outs_when_up,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",Pre-pitch number of outs.,92.6
+balls,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",Pre-pitch number of balls in count.,92.6
+strikes,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",Pre-pitch number of strikes in count.,92.6
+on_1b,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",Pre-pitch MLB Player Id of Runner on 1B.,84.5
+on_2b,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",Pre-pitch MLB Player Id of Runner on 2B.,13.8
+on_3b,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",Pre-pitch MLB Player Id of Runner on 3B.,0.0
+home_team,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",Abbreviation of home team.,92.6
+away_team,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",Abbreviation of away team.,92.6
+bat_score,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",Pre-pitch bat team score,92.6
+fld_score,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",Pre-pitch field team score,92.6
+runner_id,runner,Savant drawer,MLBAM id of the runner.,100.0
+runner_name,runner,MLB StatsAPI people,Runner's name.,100.0
+base,attempt,Savant drawer,Base the runner went for: 2B or 3B.,100.0
+result,attempt,Savant drawer (runner_moved_cd),"SB stolen base, CS caught stealing. PK, BK and FB are running events that did not happen on a pitch (checked on 12 sampled plays each against the MLB feed: PK on a pickoff attempt, BK on a balk, FB on a disengagement, i.e. a pickoff attempt or step-off), so they have no Statcast row. Models use SB/CS only.",100.0
+y,attempt,derived,"1 if result == SB, else 0 (the modelling target).",100.0
+run_value,attempt,Savant drawer,Statcast runs stolen on the running act (Savant's own credit).,100.0
+lead_at_firstmove_ft,attempt,Savant drawer (r_primary_lead),Runner's lead (ft) at the pitcher's first move.,94.1
+gain_to_release_ft,attempt,Savant drawer (r_sec_minus_prim_lead),Ground gained (ft) from the pitcher's first move to release: the secondary lead minus the primary lead.,94.1
+lead_at_release_ft,attempt,Savant drawer (r_secondary_lead),Runner's lead (ft) at the pitcher's release (= first-move lead + ground gained).,94.1
+runner_sprint_speed,runner,Savant sprint-speed leaderboard,Runner's sprint speed that season (ft/s).,99.7
+pitcher_id,pitcher,Savant drawer,MLBAM id of the pitcher.,100.0
+pitcher_name,pitcher,Savant drawer,Pitcher's name.,100.0
+p_throws,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",Hand pitcher throws with.,92.6
+cv_delivery_s,pitcher (CV),vision/delivery.py,"Pitcher's delivery time (s): lead-foot lift-off to ball release, from the broadcast clip. About 34 ms short of hand labels on average.",65.2
+cv_qa,pitcher (CV),vision/delivery.py,"PASS, or why the clip could not be timed (camera cut, no release found, ...).",92.6
+cv_confidence,pitcher (CV),vision/delivery.py,high = every signal inside the envelope verified on the 50 gold clips; low = outside it (reasons in cv_why); not measured = no PASS.,92.6
+cv_feed,pitcher (CV),vision/delivery.py,"Broadcast the delivery was timed on (HOME first, AWAY when HOME fails QA).",92.6
+catcher_id,catcher,Savant drawer,MLBAM id of the catcher.,100.0
+catcher_name,catcher,Savant drawer,Catcher's name.,100.0
+fielder_name,catcher,Savant drawer,Fielder named on the play in the drawer.,80.6
+catcher_pop_2b,catcher,Savant pop-time leaderboard,Catcher's season pop time to 2B on steal attempts (s).,98.5
+catcher_pop_3b,catcher,Savant pop-time leaderboard,Catcher's season pop time to 3B (s).,88.3
+catcher_arm_mph,catcher,Savant pop-time leaderboard,Catcher's max-effort arm strength (mph).,98.5
+catcher_exchange_s,catcher,Savant pop-time leaderboard,Catcher's exchange time (s).,98.5
+batter,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",MLB Player Id tied to the play event.,92.6
+batter_name,batter,Statcast player_name,Batter's name (Savant's player_name on pitch-level rows is the batter).,92.6
+stand,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",Side of the plate batter is standing.,92.6
+pitch_type,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",The type of pitch derived from Statcast.,92.4
+pitch_name,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",The name of the pitch derived from the Statcast Data.,92.4
+release_speed,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)","Pitch velocity in MPH. Values from 2008-16 are via PitchFX, and adjusted to roughly out-of-hand release point. All velocities from 2017 and beyond are Statcast, which are reported out-of-hand. All velocities are thus on the same scale.",92.4
+zone,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",Zone location of the ball when it crosses the plate from the catcher's perspective.,92.4
+description,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",Description of the resulting pitch.,92.6
+events,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",Event of the resulting Plate Appearance.,14.8
+at_bat_number,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",Plate appearance number of the game.,92.6
+pitch_number,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",Total pitch number of the plate appearance.,92.6
+game_date,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",Date of the Game.,92.6
+release_pos_x,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",Horizontal Release Position of the ball measured in feet from the catcher's perspective.,92.4
+release_pos_z,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",Vertical Release Position of the ball measured in feet from the catcher's perspective.,92.4
+player_name,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",Player's name tied to the event of the search.,92.6
+pitcher,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",MLB Player Id tied to the play event.,92.6
+des,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",Plate appearance description from game day.,8.7
+game_type,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)","Type of Game. E = Exhibition, S = Spring Training, R = Regular Season, F = Wild Card, D = Divisional Series, L = League Championship Series, W = World Series",92.6
+type,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)","Short hand of pitch result. B = ball, S = strike, X = in play.",92.6
+hit_location,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",Position of first fielder to touch the ball.,14.2
+bb_type,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)","Batted ball type, ground_ball, line_drive, fly_ball, popup.",0.0
+game_year,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",Year game took place.,92.6
+pfx_x,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",Horizontal movement in feet from the catcher's perspective.,92.4
+pfx_z,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",Vertical movement in feet from the catcher's perpsective.,92.4
+plate_x,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)","Horizontal position of the ball when it crosses home plate from the catcher's perspective. Through 2025, this was front-of-plate. From 2026 on, this is middle-of-plate to align with the ABS system.",92.4
+plate_z,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)","Vertical position of the ball when it crosses home plate from the catcher's perspective. Through 2025, this was front-of-plate. From 2026 on, this is middle-of-plate to align with the ABS system.",92.4
+hc_x,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",Hit coordinate X of batted ball.,0.0
+hc_y,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",Hit coordinate Y of batted ball.,0.0
+vx0,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)","The velocity of the pitch, in feet per second, in x-dimension, determined at y=50 feet.",92.4
+vy0,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)","The velocity of the pitch, in feet per second, in y-dimension, determined at y=50 feet.",92.4
+vz0,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)","The velocity of the pitch, in feet per second, in z-dimension, determined at y=50 feet.",92.4
+ax,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)","The acceleration of the pitch, in feet per second per second, in x-dimension, determined at y=50 feet.",92.4
+ay,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)","The acceleration of the pitch, in feet per second per second, in y-dimension, determined at y=50 feet.",92.4
+az,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)","The acceleration of the pitch, in feet per second per second, in z-dimension, determined at y=50 feet.",92.4
+sz_top,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)","Top of the batter's strike zone set by the operator when the ball is halfway to the plate. Through 2025, top of the batter's strike zone set by the operator when the ball is halfway to the plate. From 2026 on, this is the top of the batter's ABS-defined strike zone.",92.4
+sz_bot,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)","Bottom of the batter's strike zone set by the operator when the ball is halfway to the plate. Through 2025, bottom of the batter's strike zone set by the operator when the ball is halfway to the plate. From 2026 on, this is the bottom of the batter's ABS-defined strike zone.",92.4
+hit_distance_sc,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",Projected hit distance of the batted ball.,0.1
+launch_speed,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)","Exit velocity of the batted ball as tracked by Statcast. For the limited subset of batted balls not tracked directly, estimates are included based on the process described here .",0.1
+launch_angle,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)","Launch angle of the batted ball as tracked by Statcast. For the limited subset of batted balls not tracked directly, estimates are included based on the process described here .",0.1
+effective_speed,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",Derived speed based on the the extension of the pitcher's release.,92.4
+release_spin_rate,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",Spin rate of pitch tracked by Statcast.,92.1
+release_extension,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",Release extension of pitch in feet as tracked by Statcast.,92.4
+fielder_2,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",Pre-pitch MLB Player Id of Catcher.,92.6
+fielder_3,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",MLB Player Id for 1B.,92.6
+fielder_4,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",MLB Player Id for 2B.,92.6
+fielder_5,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",MLB Player Id for 3B.,92.6
+fielder_6,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",MLB Player Id for SS.,92.6
+fielder_7,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",MLB Player Id for LF.,92.6
+fielder_8,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",MLB Player Id for CF.,92.6
+fielder_9,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",MLB Player Id for RF.,92.6
+release_pos_y,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",Release position of pitch measured in feet from the catcher's perspective.,92.4
+estimated_ba_using_speedangle,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",Estimated Batting Avg based on launch angle and exit velocity.,0.0
+estimated_woba_using_speedangle,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",Estimated wOBA based on launch angle and exit velocity.,8.7
+woba_value,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",wOBA value based on result of play.,14.8
+woba_denom,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",wOBA denominator based on result of play.,14.8
+babip_value,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",BABIP value based on result of play.,14.8
+iso_value,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",ISO value based on result of play.,14.8
+launch_speed_angle,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",Launch speed/angle zone based on launch angle and exit velocity. Weak Topped Under Flare/Burner Solid Contact Barrel,0.0
+home_score,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",Pre-pitch home score,92.6
+away_score,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",Pre-pitch away score,92.6
+post_away_score,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",Post-pitch away score,92.6
+post_home_score,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",Post-pitch home score,92.6
+post_bat_score,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",Post-pitch bat team score,92.6
+post_fld_score,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",No entry on Savant's CSV docs page; the name suggests the fielding team's score after the play (unverified).,92.6
+if_fielding_alignment,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",Infield fielding alignment at the time of the pitch.,92.2
+of_fielding_alignment,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",Outfield fielding alignment at the time of the pitch.,92.2
+spin_axis,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)","The Spin Axis in the 2D X-Z plane in degrees from 0 to 360, such that 180 represents a pure backspin fastball and 0 degrees represents a pure topspin (12-6) curveball",92.1
+delta_home_win_exp,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",The change in Win Expectancy before the Plate Appearance and after the Plate Appearance,92.6
+delta_run_exp,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",The change in Run Expectancy before the Pitch and after the Pitch,92.5
+bat_speed,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",No entry on Savant's CSV docs page; the name suggests Statcast bat-tracking bat speed (unverified).,10.8
+swing_length,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",No entry on Savant's CSV docs page; the name suggests Statcast bat-tracking swing length (unverified).,10.8
+miss_distance,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",No entry on Savant's CSV docs page; the name suggests a bat-tracking miss distance (unverified).,10.2
+estimated_slg_using_speedangle,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",No entry on Savant's CSV docs page; the name suggests expected slugging from exit velocity and launch angle (unverified).,0.0
+delta_pitcher_run_exp,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",No entry on Savant's CSV docs page; the name suggests the change in run expectancy credited to the pitcher (unverified).,92.5
+hyper_speed,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)","Savant display name: Adjusted EV. Adjusted Exit Velocity sets every batted ball hit below 88 mph as 88 mph, otherwise it uses the actual Exit Velocity",0.2
+home_score_diff,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",Home score minus Away score,92.6
+bat_score_diff,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",Batting team score less Pitching team score,92.6
+home_win_exp,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",Home team win expectancy,92.6
+bat_win_exp,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",Bat team win expectancy,92.6
+age_pit_legacy,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",pitcher age on 6/30,92.6
+age_bat_legacy,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",batter age on 6/30,92.6
+age_pit,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",pitcher age on 12/31,92.6
+age_bat,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",batter age on 12/31,92.6
+n_thruorder_pitcher,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",pitcher times through the order,92.6
+n_priorpa_thisgame_player_at_bat,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",number of prior PAs in this game for this batter,92.6
+pitcher_days_since_prev_game,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",number of days since pitcher's last game,88.3
+batter_days_since_prev_game,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",number of days since batter's last game,91.5
+pitcher_days_until_next_game,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",number of days until the pitcher's next game,89.2
+batter_days_until_next_game,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",number of days until the batter's next game,91.8
+api_break_z_with_gravity,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",Vertical break with gravity included,92.4
+api_break_x_arm,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)","Break, in inches, of a pitch to the pitcher's arm side.",92.4
+api_break_x_batter_in,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)","Break, in inches, of a pitch toward the batter's side of plate.",92.4
+arm_angle,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)",The angle between a line parallel to the ground and a l line extending from the location of the pitcher's throwing shoulder and the location of the ball at the time of the pitch.,92.1
+attack_angle,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)","Attack Angle measures the vertical angle of the direction in which the sweet spot of the bat is traveling as it impacts the ball, as compared to the ground.",10.8
+attack_direction,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)","Attack Direction measures the horizontal angle of the direction in which the sweet spot of the bat is traveling as it impacts the ball, as compared to a line from home plate to straightaway center field.",10.8
+swing_path_tilt,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)","The vertical angular orientation of the ""plane"" of the swing, as compared to the ground, defined by the path of the bat in the 40 ms prior to contact, which approximates a slice of a flat disc in shape.",10.8
+intercept_ball_minus_batter_pos_x_inches,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)","Distance, in inches, between the intercept point of the bat/ball and the batter's center of mass, in the X (horizontal) direction.",10.8
+intercept_ball_minus_batter_pos_y_inches,Statcast pitch,"Savant Statcast search CSV (per game), joined on play_id via the MLB feed's (at_bat_number, pitch_number)","Distance, in inches, between the intercept point of the bat/ball and the batter's center of mass, in the Y (mound-to-plate) direction.",10.8
+catcher_pop_2b_n,catcher,Savant pop-time leaderboard,Throws behind the catcher's pop time to 2B.,98.5
+cv_ball_pts,pitcher (CV),vision/delivery.py,Ball detections in the 9 frames after release.,80.2
+cv_fps,pitcher (CV),vision/delivery.py,Frames per second of the clip.,89.5
+cv_home_qa,pitcher (CV),vision/delivery.py,QA result on the home broadcast.,92.6
+cv_lead_foot,pitcher (CV),vision/delivery.py,Lead (glove-side) foot: L or R.,72.4
+cv_lift_frame,pitcher (CV),vision/delivery.py,Frame of lead-foot lift-off.,72.4
+cv_lift_peak_in,pitcher (CV),vision/delivery.py,Peak rise of the lead foot (inches).,72.4
+cv_lift_s,pitcher (CV),derived,"Lift-off, seconds into the clip (open video_url and skip here).",72.4
+cv_release_frame,pitcher (CV),vision/delivery.py,Frame of ball release.,80.2
+cv_release_s,pitcher (CV),derived,"Release, seconds into the clip.",80.2
+cv_release_to_wrist,pitcher (CV),vision/delivery.py,Ball-to-wrist distance at release (x pitcher height).,80.0
+cv_why,pitcher (CV),vision/delivery.py,Signals outside the verified envelope.,35.9
+feed_is_lhp,MLB feed,StatsAPI playByPlay,1 if the pitcher is left-handed.,99.9
+feed_bat_side_r,MLB feed,StatsAPI playByPlay,1 if the batter hits right-handed.,99.9
+feed_pitch_code,MLB feed,StatsAPI playByPlay,MLB pitch-type code of the pitch.,92.5
+feed_balls,MLB feed,StatsAPI playByPlay,Balls AFTER the pitch (the feed's count). Not a pre-pitch input: use balls.,99.9
+feed_strikes,MLB feed,StatsAPI playByPlay,Strikes AFTER the pitch. Not a pre-pitch input: use strikes.,99.9
+feed_outs,MLB feed,StatsAPI playByPlay,Outs on the pitch event (the caught-stealing out is recorded on a later event).,99.9
+feed_inning,MLB feed,StatsAPI playByPlay,Inning.,99.9
+feed_score_diff,MLB feed,StatsAPI playByPlay,Batting team's lead at the END of the plate appearance: can include runs scored after the attempt. Never a model input; use bat_score - fld_score.,99.9
+attempt_idx,identity,derived,Row number in data/raw/Raw_Attempts.csv. Sorting on it restores the order the models were fit in (it fixes the cross-validation folds).,100.0
+spin_dir,dropped,Statcast,Empty for every attempt pitch (deprecated by Savant).,0.0
+spin_rate_deprecated,dropped,Statcast,Empty for every attempt pitch (deprecated by Savant).,0.0
+break_angle_deprecated,dropped,Statcast,Empty for every attempt pitch (deprecated by Savant).,0.0
+break_length_deprecated,dropped,Statcast,Empty for every attempt pitch (deprecated by Savant).,0.0
+tfs_deprecated,dropped,Statcast,Empty for every attempt pitch (deprecated by Savant).,0.0
+tfs_zulu_deprecated,dropped,Statcast,Empty for every attempt pitch (deprecated by Savant).,0.0
+umpire,dropped,Statcast,Empty for every attempt pitch (deprecated by Savant).,0.0
+sv_id,dropped,Statcast,Empty for every attempt pitch (deprecated by Savant).,0.0

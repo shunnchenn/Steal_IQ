@@ -1,3 +1,0 @@
-scored_pool,fit_used_instead,steal_plus_mean_shift,steal_plus_max_shift,burst_mean_shift,spearman_steal_plus,corr_burst_speed_own,corr_burst_speed_pooled
-POST 2023-2026,ALL 2016-2026,0.978,4.459,0.031,0.9942,-0.0,-0.139
-PRE 2016-2022,ALL 2016-2026,-0.583,2.65,-0.021,0.9972,0.0,0.1
