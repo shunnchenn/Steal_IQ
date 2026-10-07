@@ -1,6 +1,6 @@
-# StealIQ
+# Steal IQ
 
-## ▶ **[Try the steal-odds calculator](https://shunnchenn.github.io/StealIQ/#calc)** &nbsp;·&nbsp; [explore the leaderboard](https://shunnchenn.github.io/StealIQ/)
+## ▶ **[Try the steal-odds calculator](https://shunnchenn.github.io/Steal_IQ/#calc)** &nbsp;·&nbsp; [explore the leaderboard](https://shunnchenn.github.io/Steal_IQ/)
 
 Josh Naylor stole 30 bases at 94% in 2025 while running slower than 97% of the players Statcast timed. **What decides a stolen base, if
 not speed?** This project measures it on every tracked steal attempt of 2023–2026 and finds the answer is the ground the
@@ -27,7 +27,7 @@ are not committed yet. **[`0-Catalog.pdf`](0-Catalog.pdf)** is the map of every 
 ## The repository is the research funnel
 
 ```
-StealIQ/
+Steal_IQ/
 ├── 1-Data-Ingestion/            scrape → raw tables → ONE META TABLE PER SEASON
 │   ├── ingest.py                  the one scraper and builder (Savant + MLB StatsAPI)
 │   ├── vision/                    delivery.py: pitcher delivery time from broadcast video (+ gold labels, REPORT.md)

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>StealIQ — Base-Stealing Leaderboard</title>
+<title>Steal IQ — Base-Stealing Leaderboard</title>
 <style>
   :root{
     --navy:#0c2340; --navy2:#143257;
@@ -327,7 +327,7 @@
 <header>
   <div class="wrap">
     <div class="hd">
-      <h1>StealIQ</h1><span class="vpill">v15</span>
+      <h1>Steal IQ</h1><span class="vpill">v15</span>
       <div class="sub">Base-stealing skill that sprint speed hides — a Statcast-style leaderboard</div>
     </div>
     <div class="tabs">
@@ -899,7 +899,7 @@ function buildGlossary(){
   $("#gtbl").innerHTML=G.map(([t,d])=>`<tr><td class="term">${t}</td><td class="def">${d}</td></tr>`).join("");
   const sNet=vget("describes net steals","Steal+"), sSuc=vget("describes success rate","Steal+"),
         bStab=vget("year-over-year self-stability","Burst"), spSpd=vget("corr with sprint speed","Steal+");
-  $("#foot").innerHTML=`<b>StealIQ.</b> This board: ${META.n_player_seasons} runner-seasons,
+  $("#foot").innerHTML=`<b>Steal IQ.</b> This board: ${META.n_player_seasons} runner-seasons,
     ${META.era} (Statcast lead-tracking era, 2026 current). League SB success ≈ <b>${META.league_success_pct}%</b>.
     Steal+ describes same-season net steals at <b>${fmt(sNet,2)}</b> and success rate at
     <b>${fmt(sSuc,2)}</b> while staying speed-neutral (<b>${signed(spSpd,2)}</b> with sprint speed);

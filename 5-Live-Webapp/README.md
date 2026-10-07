@@ -1,6 +1,6 @@
 # 5 · Live Webapp
 
-The code behind the public site, **[shunnchenn.github.io/StealIQ](https://shunnchenn.github.io/StealIQ/)**: the leaderboard
+The code behind the public site, **[shunnchenn.github.io/Steal_IQ](https://shunnchenn.github.io/Steal_IQ/)**: the leaderboard
 (Steal+, Burst), the season metrics and the steal-odds calculator. `webapp.py` computes them and writes them into the
 payload embedded in `docs/index.html`. The page itself stays in `docs/` at the repository root, because GitHub Pages
 serves only the root or `docs/`.

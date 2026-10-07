@@ -260,7 +260,7 @@ def catalog_pdf():
     # off the foot of a page instead
     H1 = ParagraphStyle("H1c", parent=BP.H1, keepWithNext=0)
     src, nbt = code_sources()
-    st = [Spacer(1, 12), BP.para("StealIQ: Catalog", BP.TITLE),
+    st = [Spacer(1, 12), BP.para("Steal IQ: Catalog", BP.TITLE),
           BP.para("Every folder, data file, result and figure in the repository: what it is and which code uses it", BP.SUB),
           BP.para("1. The repository", BP.H1),
           BP.para("The folders are a research funnel: each stage reads only what the stage before it wrote. Results and figures "
@@ -292,11 +292,11 @@ def catalog_pdf():
 
     def footer(c, doc):
         c.saveState(); c.setFont("Helvetica", 7.5); c.setFillColor(BP.MUTED)
-        c.drawString(1.0 * inch, 0.55 * inch, "StealIQ: Catalog"); c.drawRightString(7.5 * inch, 0.55 * inch, str(doc.page))
+        c.drawString(1.0 * inch, 0.55 * inch, "Steal IQ: Catalog"); c.drawRightString(7.5 * inch, 0.55 * inch, str(doc.page))
         c.restoreState()
     out = REPO / "0-Catalog.pdf"
     SimpleDocTemplate(str(out), pagesize=letter, leftMargin=inch, rightMargin=inch, topMargin=0.85 * inch, bottomMargin=0.85 * inch,
-                      title="StealIQ: Catalog", author="StealIQ").build(st, onFirstPage=footer, onLaterPages=footer)
+                      title="Steal IQ: Catalog", author="Steal IQ").build(st, onFirstPage=footer, onLaterPages=footer)
     print(f"wrote {out}")
 
 
