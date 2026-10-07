@@ -1,0 +1,116 @@
+field,description,source,fetched
+pitch_type,The type of pitch derived from Statcast.,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+game_date,Date of the Game.,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+release_speed,"Pitch velocity in MPH. Values from 2008-16 are via PitchFX, and adjusted to roughly out-of-hand release point. All velocities from 2017 and beyond are Statcast, which are reported out-of-hand. All velocities are thus on the same scale.",https://baseballsavant.mlb.com/csv-docs,2026-10-05
+release_pos_x,Horizontal Release Position of the ball measured in feet from the catcher's perspective.,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+release_pos_z,Vertical Release Position of the ball measured in feet from the catcher's perspective.,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+player_name,Player's name tied to the event of the search.,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+batter,MLB Player Id tied to the play event.,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+pitcher,MLB Player Id tied to the play event.,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+events,Event of the resulting Plate Appearance.,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+description,Description of the resulting pitch.,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+spin_dir,* Deprecated field from the old tracking system.,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+spin_rate_deprecated,* Deprecated field from the old tracking system. Replaced by release_spin,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+break_angle_deprecated,* Deprecated field from the old tracking system.,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+break_length_deprecated,* Deprecated field from the old tracking system.,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+zone,Zone location of the ball when it crosses the plate from the catcher's perspective.,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+des,Plate appearance description from game day.,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+game_type,"Type of Game. E = Exhibition, S = Spring Training, R = Regular Season, F = Wild Card, D = Divisional Series, L = League Championship Series, W = World Series",https://baseballsavant.mlb.com/csv-docs,2026-10-05
+stand,Side of the plate batter is standing.,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+p_throws,Hand pitcher throws with.,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+home_team,Abbreviation of home team.,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+away_team,Abbreviation of away team.,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+type,"Short hand of pitch result. B = ball, S = strike, X = in play.",https://baseballsavant.mlb.com/csv-docs,2026-10-05
+hit_location,Position of first fielder to touch the ball.,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+bb_type,"Batted ball type, ground_ball, line_drive, fly_ball, popup.",https://baseballsavant.mlb.com/csv-docs,2026-10-05
+balls,Pre-pitch number of balls in count.,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+strikes,Pre-pitch number of strikes in count.,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+game_year,Year game took place.,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+pfx_x,Horizontal movement in feet from the catcher's perspective.,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+pfx_z,Vertical movement in feet from the catcher's perpsective.,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+plate_x,"Horizontal position of the ball when it crosses home plate from the catcher's perspective. Through 2025, this was front-of-plate. From 2026 on, this is middle-of-plate to align with the ABS system.",https://baseballsavant.mlb.com/csv-docs,2026-10-05
+plate_z,"Vertical position of the ball when it crosses home plate from the catcher's perspective. Through 2025, this was front-of-plate. From 2026 on, this is middle-of-plate to align with the ABS system.",https://baseballsavant.mlb.com/csv-docs,2026-10-05
+on_3b,Pre-pitch MLB Player Id of Runner on 3B.,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+on_2b,Pre-pitch MLB Player Id of Runner on 2B.,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+on_1b,Pre-pitch MLB Player Id of Runner on 1B.,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+outs_when_up,Pre-pitch number of outs.,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+inning,Pre-pitch inning number.,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+inning_topbot,Pre-pitch top or bottom of inning.,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+hc_x,Hit coordinate X of batted ball.,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+hc_y,Hit coordinate Y of batted ball.,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+tfs_deprecated,* Deprecated field from old tracking system.,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+tfs_zulu_deprecated,* Deprecated field from old tracking system.,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+fielder_2,Pre-pitch MLB Player Id of Catcher.,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+umpire,* Deprecated field from old tracking system.,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+sv_id,Non-unique Id of play event per game.,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+vx0,"The velocity of the pitch, in feet per second, in x-dimension, determined at y=50 feet.",https://baseballsavant.mlb.com/csv-docs,2026-10-05
+vy0,"The velocity of the pitch, in feet per second, in y-dimension, determined at y=50 feet.",https://baseballsavant.mlb.com/csv-docs,2026-10-05
+vx0-2,"The velocity of the pitch, in feet per second, in z-dimension, determined at y=50 feet.",https://baseballsavant.mlb.com/csv-docs,2026-10-05
+ax,"The acceleration of the pitch, in feet per second per second, in x-dimension, determined at y=50 feet.",https://baseballsavant.mlb.com/csv-docs,2026-10-05
+ay,"The acceleration of the pitch, in feet per second per second, in y-dimension, determined at y=50 feet.",https://baseballsavant.mlb.com/csv-docs,2026-10-05
+az,"The acceleration of the pitch, in feet per second per second, in z-dimension, determined at y=50 feet.",https://baseballsavant.mlb.com/csv-docs,2026-10-05
+sz_top,"Top of the batter's strike zone set by the operator when the ball is halfway to the plate. Through 2025, top of the batter's strike zone set by the operator when the ball is halfway to the plate. From 2026 on, this is the top of the batter's ABS-defined strike zone.",https://baseballsavant.mlb.com/csv-docs,2026-10-05
+sz_bot,"Bottom of the batter's strike zone set by the operator when the ball is halfway to the plate. Through 2025, bottom of the batter's strike zone set by the operator when the ball is halfway to the plate. From 2026 on, this is the bottom of the batter's ABS-defined strike zone.",https://baseballsavant.mlb.com/csv-docs,2026-10-05
+hit_distance,Projected hit distance of the batted ball.,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+launch_speed,"Exit velocity of the batted ball as tracked by Statcast. For the limited subset of batted balls not tracked directly, estimates are included based on the process described here .",https://baseballsavant.mlb.com/csv-docs,2026-10-05
+launch_angle,"Launch angle of the batted ball as tracked by Statcast. For the limited subset of batted balls not tracked directly, estimates are included based on the process described here .",https://baseballsavant.mlb.com/csv-docs,2026-10-05
+effective_speed,Derived speed based on the the extension of the pitcher's release.,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+release_spin,Spin rate of pitch tracked by Statcast.,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+release_extension,Release extension of pitch in feet as tracked by Statcast.,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+game_pk,Unique Id for Game.,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+pitcher-2,MLB Player Id tied to the play event.,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+fielder_2-2,MLB Player Id for catcher.,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+fielder_3,MLB Player Id for 1B.,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+fielder_4,MLB Player Id for 2B.,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+fielder_5,MLB Player Id for 3B.,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+fielder_6,MLB Player Id for SS.,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+fielder_7,MLB Player Id for LF.,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+fielder_8,MLB Player Id for CF.,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+fielder_9,MLB Player Id for RF.,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+release_pos_y,Release position of pitch measured in feet from the catcher's perspective.,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+estimated_ba_using_speedangle,Estimated Batting Avg based on launch angle and exit velocity.,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+estimated_woba_using_speedangle,Estimated wOBA based on launch angle and exit velocity.,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+woba_value,wOBA value based on result of play.,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+woba_denom,wOBA denominator based on result of play.,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+babip_value,BABIP value based on result of play.,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+iso_value,ISO value based on result of play.,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+launch_speed_angle,Launch speed/angle zone based on launch angle and exit velocity. Weak Topped Under Flare/Burner Solid Contact Barrel,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+at_bat_number,Plate appearance number of the game.,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+pitch_number,Total pitch number of the plate appearance.,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+pitch_name,The name of the pitch derived from the Statcast Data.,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+home_score,Pre-pitch home score,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+away_score,Pre-pitch away score,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+bat_score,Pre-pitch bat team score,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+fld_score,Pre-pitch field team score,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+post_home_score,Post-pitch home score,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+post_away_score,Post-pitch away score,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+post_bat_score,Post-pitch bat team score,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+if_fielding_alignment,Infield fielding alignment at the time of the pitch.,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+of_fielding_alignment,Outfield fielding alignment at the time of the pitch.,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+spin_axis,"The Spin Axis in the 2D X-Z plane in degrees from 0 to 360, such that 180 represents a pure backspin fastball and 0 degrees represents a pure topspin (12-6) curveball",https://baseballsavant.mlb.com/csv-docs,2026-10-05
+delta_home_win_exp,The change in Win Expectancy before the Plate Appearance and after the Plate Appearance,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+delta_run_exp,The change in Run Expectancy before the Pitch and after the Pitch,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+hyper_speed,"Savant display name: Adjusted EV. Adjusted Exit Velocity sets every batted ball hit below 88 mph as 88 mph, otherwise it uses the actual Exit Velocity",https://baseballsavant.mlb.com/csv-docs,2026-10-05
+home_score_diff,Home score minus Away score,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+bat_score_diff,Batting team score less Pitching team score,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+home_win_exp,Home team win expectancy,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+bat_win_exp,Bat team win expectancy,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+age_pit_legacy,pitcher age on 6/30,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+age_bat_legacy,batter age on 6/30,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+age_pit,pitcher age on 12/31,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+age_bat,batter age on 12/31,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+n_thruorder_pitcher,pitcher times through the order,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+n_priorpa_thisgame_player_at_bat,number of prior PAs in this game for this batter,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+pitcher_days_since_prev_game,number of days since pitcher's last game,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+batter_days_since_prev_game,number of days since batter's last game,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+pitcher_days_until_next_game,number of days until the pitcher's next game,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+batter_days_until_next_game,number of days until the batter's next game,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+api_break_z_with_gravity,Vertical break with gravity included,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+api_break_x_arm,"Break, in inches, of a pitch to the pitcher's arm side.",https://baseballsavant.mlb.com/csv-docs,2026-10-05
+api_break_x_batter_in,"Break, in inches, of a pitch toward the batter's side of plate.",https://baseballsavant.mlb.com/csv-docs,2026-10-05
+arm_angle,The angle between a line parallel to the ground and a l line extending from the location of the pitcher's throwing shoulder and the location of the ball at the time of the pitch.,https://baseballsavant.mlb.com/csv-docs,2026-10-05
+attack_angle,"Attack Angle measures the vertical angle of the direction in which the sweet spot of the bat is traveling as it impacts the ball, as compared to the ground.",https://baseballsavant.mlb.com/csv-docs,2026-10-05
+attack_direction,"Attack Direction measures the horizontal angle of the direction in which the sweet spot of the bat is traveling as it impacts the ball, as compared to a line from home plate to straightaway center field.",https://baseballsavant.mlb.com/csv-docs,2026-10-05
+swing_path_tilt,"The vertical angular orientation of the ""plane"" of the swing, as compared to the ground, defined by the path of the bat in the 40 ms prior to contact, which approximates a slice of a flat disc in shape.",https://baseballsavant.mlb.com/csv-docs,2026-10-05
+intercept_ball_minus_batter_pos_x_inches,"Distance, in inches, between the intercept point of the bat/ball and the batter's center of mass, in the X (horizontal) direction.",https://baseballsavant.mlb.com/csv-docs,2026-10-05
+intercept_ball_minus_batter_pos_y_inches,"Distance, in inches, between the intercept point of the bat/ball and the batter's center of mass, in the Y (mound-to-plate) direction.",https://baseballsavant.mlb.com/csv-docs,2026-10-05

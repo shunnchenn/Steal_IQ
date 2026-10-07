@@ -1,4 +1,0 @@
-split,auroc,auprc,brier,n_scored
-random,0.7829,0.9387,0.1295,11140
-group,0.7783,0.9368,0.1303,11140
-forward,0.7633,0.9296,0.1382,8075

@@ -1,4 +1,0 @@
-era,runner_seasons,min_attempts_gate,seasons,league_SB_pct,p_speed_a0,p_speed_a1,ground_b0,ground_b1,ground_at_25ftps,ground_at_30ftps,corr_steal_plus_speed,corr_burst_speed,corr_ground_speed,n5_max_abs_diff
-PRE 2016-2022,690,10,2016-2022,76.4,0.133,0.022,23.177,-0.4033,13.09,11.08,0.036,0.0,-0.296,0.0
-POST 2023-2026,452,10,2023-2026,80.4,0.473,0.01136,32.186,-0.7206,14.17,10.57,-0.013,-0.0,-0.478,0.0
-ALL 2016-2026,1142,10,2016-2026,78.1,0.2632,0.01794,26.898,-0.5345,13.53,10.86,0.015,-0.0,-0.375,0.0

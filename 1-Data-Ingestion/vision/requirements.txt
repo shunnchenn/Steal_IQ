@@ -1,0 +1,10 @@
+# Pitcher delivery time from video (vision/delivery.py). Built as a venv with --system-site-packages on top of the
+# analysis environment (../../requirements.txt), plus these. Weights: BaseballCV detectors in vision/weights/
+# (data.balldatalab.com; Core ML exports via coremltools); RTMPose-m downloads itself on first use.
+torch==2.12.0
+ultralytics==8.4.56
+rtmlib
+onnxruntime==1.26.0
+scenedetect==0.7.1
+opencv-python
+coremltools==9.0
